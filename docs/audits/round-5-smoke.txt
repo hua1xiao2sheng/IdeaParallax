@@ -1,0 +1,21 @@
+{
+  "python": "3.13.5",
+  "codex": false,
+  "git": true,
+  "gh": false,
+  "api_credentials": "not inspected",
+  "demo": "available",
+  "note": "Executable presence does not verify login, model access, network, or sandbox setup."
+}
+{
+  "status": "completed",
+  "candidates": 6,
+  "synthetic_demo": true,
+  "report": "/mnt/data/IdeaParallax-final-demo/report.html"
+}
+{
+  "status": "completed",
+  "candidates": 6,
+  "synthetic_demo": true,
+  "report": "/mnt/data/IdeaParallax-final-demo/report.html"
+}

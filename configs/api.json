@@ -1,0 +1,15 @@
+{
+  "provider": {"type": "api", "base_url": "https://api.openai.com/v1", "api_key_env": "IDEA_LLM_API_KEY", "model": "CHANGE_ME", "timeout_seconds": 120, "max_output_tokens": 6000},
+  "concurrency": 3,
+  "max_calls": 20,
+  "retries": 1,
+  "review": true,
+  "branches": [
+    {"id": "orchestra", "strategy": "orchestra", "max_ideas": 3},
+    {"id": "aris", "strategy": "aris", "max_ideas": 3},
+    {"id": "ideaspark", "strategy": "ideaspark", "max_ideas": 1},
+    {"id": "kdense", "strategy": "kdense", "max_ideas": 3},
+    {"id": "evoskills", "strategy": "evoskills", "max_ideas": 3},
+    {"id": "scientist", "strategy": "scientist-v2", "max_ideas": 3}
+  ]
+}

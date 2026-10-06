@@ -1,0 +1,39 @@
+test_brief_preserves_user_scope (test_round1_contracts.Contracts.test_brief_preserves_user_scope) ... ok
+test_duplicate_branch_rejected (test_round1_contracts.Contracts.test_duplicate_branch_rejected) ... ok
+test_empty_topic_rejected (test_round1_contracts.Contracts.test_empty_topic_rejected) ... ok
+test_fabricated_evidence_rejected (test_round1_contracts.Contracts.test_fabricated_evidence_rejected) ... ok
+test_fenced_json (test_round1_contracts.Contracts.test_fenced_json) ... ok
+test_missing_hypothesis_rejected (test_round1_contracts.Contracts.test_missing_hypothesis_rejected) ... ok
+test_nan_rejected (test_round1_contracts.Contracts.test_nan_rejected) ... ok
+test_path_traversal_branch_rejected (test_round1_contracts.Contracts.test_path_traversal_branch_rejected) ... ok
+test_quota_enforced (test_round1_contracts.Contracts.test_quota_enforced) ... ok
+test_six_distinct_strategies (test_round1_contracts.Contracts.test_six_distinct_strategies) ... ok
+test_unknown_config_rejected (test_round1_contracts.Contracts.test_unknown_config_rejected) ... ok
+test_zero_candidates_allowed (test_round1_contracts.Contracts.test_zero_candidates_allowed) ... ok
+test_config_change_refuses_resume (test_round1_contracts.EndToEnd.test_config_change_refuses_resume) ... ok
+test_demo_complete_report (test_round1_contracts.EndToEnd.test_demo_complete_report) ... ok
+test_existing_output_not_overwritten (test_round1_contracts.EndToEnd.test_existing_output_not_overwritten) ... ok
+test_real_parallel_and_separate_payloads (test_round1_contracts.EndToEnd.test_real_parallel_and_separate_payloads) ... ok
+test_resume_does_not_repeat_success (test_round1_contracts.EndToEnd.test_resume_does_not_repeat_success) ... ok
+test_review_blinds_project_sources (test_round1_contracts.EndToEnd.test_review_blinds_project_sources) ... ok
+test_html_escapes_model_or_user_text (test_round2_security.AsyncSecurity.test_html_escapes_model_or_user_text) ... ok
+test_no_command_execution_without_optin (test_round2_security.AsyncSecurity.test_no_command_execution_without_optin) ... ok
+test_process_output_bounded (test_round2_security.AsyncSecurity.test_process_output_bounded) ... ok
+test_process_timeout (test_round2_security.AsyncSecurity.test_process_timeout) ... ok
+test_stderr_secrets_not_persisted (test_round2_security.AsyncSecurity.test_stderr_secrets_not_persisted) ... ok
+test_symlink_root_refused (test_round2_security.AsyncSecurity.test_symlink_root_refused) ... ok
+test_credential_url_refused (test_round2_security.Security.test_credential_url_refused) ... ok
+test_direct_key_field_refused (test_round2_security.Security.test_direct_key_field_refused) ... ok
+test_environment_not_inherited_by_commands (test_round2_security.Security.test_environment_not_inherited_by_commands) ... ok
+test_explicit_allowlist (test_round2_security.Security.test_explicit_allowlist) ... ok
+test_invalid_allowlist_fails_early (test_round2_security.Security.test_invalid_allowlist_fails_early) ... ok
+test_local_http_allowed (test_round2_security.Security.test_local_http_allowed) ... ok
+test_query_secret_refused (test_round2_security.Security.test_query_secret_refused) ... ok
+test_remote_http_refused (test_round2_security.Security.test_remote_http_refused) ... ok
+test_shell_string_refused (test_round2_security.Security.test_shell_string_refused) ... ok
+test_symlink_parent_write_refused (test_round2_security.Security.test_symlink_parent_write_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 2.723s
+
+OK

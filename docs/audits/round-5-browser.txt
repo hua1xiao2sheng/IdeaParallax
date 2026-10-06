@@ -1,0 +1,10 @@
+Chromium headless, 2026-10-05
+Rendered already-generated HTML with set_content; file:// was blocked by browser policy, not changed.
+PASS: six synthetic candidate cards rendered
+PASS: visible SYNTHETIC DEMO label
+PASS: non-matching search hides all cards and updates counter to zero
+PASS: clearing search restores all six cards
+PASS: 390px mobile viewport has no horizontal page overflow
+PASS: opening status table and experiment details preserves mobile width
+PASS: no page JavaScript exceptions
+Boundary: tested generated demo report, not live-model idea quality

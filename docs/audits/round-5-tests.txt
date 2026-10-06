@@ -1,0 +1,103 @@
+test_brief_preserves_user_scope (test_round1_contracts.Contracts.test_brief_preserves_user_scope) ... ok
+test_duplicate_branch_rejected (test_round1_contracts.Contracts.test_duplicate_branch_rejected) ... ok
+test_empty_topic_rejected (test_round1_contracts.Contracts.test_empty_topic_rejected) ... ok
+test_fabricated_evidence_rejected (test_round1_contracts.Contracts.test_fabricated_evidence_rejected) ... ok
+test_fenced_json (test_round1_contracts.Contracts.test_fenced_json) ... ok
+test_missing_hypothesis_rejected (test_round1_contracts.Contracts.test_missing_hypothesis_rejected) ... ok
+test_nan_rejected (test_round1_contracts.Contracts.test_nan_rejected) ... ok
+test_path_traversal_branch_rejected (test_round1_contracts.Contracts.test_path_traversal_branch_rejected) ... ok
+test_quota_enforced (test_round1_contracts.Contracts.test_quota_enforced) ... ok
+test_six_distinct_strategies (test_round1_contracts.Contracts.test_six_distinct_strategies) ... ok
+test_unknown_config_rejected (test_round1_contracts.Contracts.test_unknown_config_rejected) ... ok
+test_zero_candidates_allowed (test_round1_contracts.Contracts.test_zero_candidates_allowed) ... ok
+test_config_change_refuses_resume (test_round1_contracts.EndToEnd.test_config_change_refuses_resume) ... ok
+test_demo_complete_report (test_round1_contracts.EndToEnd.test_demo_complete_report) ... ok
+test_existing_output_not_overwritten (test_round1_contracts.EndToEnd.test_existing_output_not_overwritten) ... ok
+test_real_parallel_and_separate_payloads (test_round1_contracts.EndToEnd.test_real_parallel_and_separate_payloads) ... ok
+test_resume_does_not_repeat_success (test_round1_contracts.EndToEnd.test_resume_does_not_repeat_success) ... ok
+test_review_blinds_project_sources (test_round1_contracts.EndToEnd.test_review_blinds_project_sources) ... ok
+test_html_escapes_model_or_user_text (test_round2_security.AsyncSecurity.test_html_escapes_model_or_user_text) ... ok
+test_no_command_execution_without_optin (test_round2_security.AsyncSecurity.test_no_command_execution_without_optin) ... ok
+test_process_output_bounded (test_round2_security.AsyncSecurity.test_process_output_bounded) ... ok
+test_process_timeout (test_round2_security.AsyncSecurity.test_process_timeout) ... ok
+test_stderr_secrets_not_persisted (test_round2_security.AsyncSecurity.test_stderr_secrets_not_persisted) ... ok
+test_symlink_root_refused (test_round2_security.AsyncSecurity.test_symlink_root_refused) ... ok
+test_credential_url_refused (test_round2_security.Security.test_credential_url_refused) ... ok
+test_direct_key_field_refused (test_round2_security.Security.test_direct_key_field_refused) ... ok
+test_environment_not_inherited_by_commands (test_round2_security.Security.test_environment_not_inherited_by_commands) ... ok
+test_explicit_allowlist (test_round2_security.Security.test_explicit_allowlist) ... ok
+test_invalid_allowlist_fails_early (test_round2_security.Security.test_invalid_allowlist_fails_early) ... ok
+test_local_http_allowed (test_round2_security.Security.test_local_http_allowed) ... ok
+test_query_secret_refused (test_round2_security.Security.test_query_secret_refused) ... ok
+test_remote_http_refused (test_round2_security.Security.test_remote_http_refused) ... ok
+test_shell_string_refused (test_round2_security.Security.test_shell_string_refused) ... ok
+test_symlink_parent_write_refused (test_round2_security.Security.test_symlink_parent_write_refused) ... ok
+test_active_lock_refused (test_round3_reliability.Locks.test_active_lock_refused) ... ok
+test_lock_released_on_failure (test_round3_reliability.Locks.test_lock_released_on_failure) ... ok
+test_all_fail_never_falls_back_to_demo (test_round3_reliability.Reliability.test_all_fail_never_falls_back_to_demo) ... ok
+test_budget_is_global_and_hard_for_outer_calls (test_round3_reliability.Reliability.test_budget_is_global_and_hard_for_outer_calls) ... ok
+test_cancellation_records_interrupted_and_releases_lock (test_round3_reliability.Reliability.test_cancellation_records_interrupted_and_releases_lock) ... ok
+test_changed_brief_refuses_resume (test_round3_reliability.Reliability.test_changed_brief_refuses_resume) ... ok
+test_checkpoint_tampering_is_not_silently_reused (test_round3_reliability.Reliability.test_checkpoint_tampering_is_not_silently_reused) ... ok
+test_failed_branch_resume_only_retries_failed_generation (test_round3_reliability.Reliability.test_failed_branch_resume_only_retries_failed_generation) ... ok
+test_negative_saved_budget_refused (test_round3_reliability.Reliability.test_negative_saved_budget_refused) ... ok
+test_no_review_mode (test_round3_reliability.Reliability.test_no_review_mode) ... ok
+test_partial_failure_preserves_other_branches (test_round3_reliability.Reliability.test_partial_failure_preserves_other_branches) ... ok
+test_race_rechecks_output_under_lock (test_round3_reliability.Reliability.test_race_rechecks_output_under_lock) ... ok
+test_retry_counts_against_budget (test_round3_reliability.Reliability.test_retry_counts_against_budget) ... ok
+test_two_reviewers_can_run_in_parallel (test_round3_reliability.Reliability.test_two_reviewers_can_run_in_parallel) ... ok
+test_different_experimental_condition_preserved (test_round4_integrity.Integrity.test_different_experimental_condition_preserved) ... ok
+test_different_falsification_preserved (test_round4_integrity.Integrity.test_different_falsification_preserved) ... ok
+test_different_hypothesis_preserved (test_round4_integrity.Integrity.test_different_hypothesis_preserved) ... ok
+test_duplicate_candidate_review_refused (test_round4_integrity.Integrity.test_duplicate_candidate_review_refused) ... ok
+test_empty_search_query_refused (test_round4_integrity.Integrity.test_empty_search_query_refused) ... ok
+test_global_novelty_claim_not_a_valid_status (test_round4_integrity.Integrity.test_global_novelty_claim_not_a_valid_status) ... ok
+test_identical_science_different_title_grouped_without_deletion (test_round4_integrity.Integrity.test_identical_science_different_title_grouped_without_deletion) ... ok
+test_metadata_cannot_establish_novelty (test_round4_integrity.Integrity.test_metadata_cannot_establish_novelty) ... ok
+test_missing_candidate_review_refused (test_round4_integrity.Integrity.test_missing_candidate_review_refused) ... ok
+test_no_experiment_results_in_contract (test_round4_integrity.Integrity.test_no_experiment_results_in_contract) ... ok
+test_unknown_review_evidence_refused (test_round4_integrity.Integrity.test_unknown_review_evidence_refused) ... ok
+test_validation_does_not_rewrite_raw_review (test_round4_integrity.Integrity.test_validation_does_not_rewrite_raw_review) ... ok
+test_zero_candidates_need_reason (test_round4_integrity.Integrity.test_zero_candidates_need_reason) ... ok
+test_existing_bundle_not_overwritten (test_round4_integrity.Upstreams.test_existing_bundle_not_overwritten) ... ok
+test_modified_bundle_refused (test_round4_integrity.Upstreams.test_modified_bundle_refused) ... ok
+test_moving_branch_refused (test_round4_integrity.Upstreams.test_moving_branch_refused) ... ok
+test_native_archive_rejects_symlinks (test_round4_integrity.Upstreams.test_native_archive_rejects_symlinks) ... ok
+test_native_snapshot_does_not_modify_original (test_round4_integrity.Upstreams.test_native_snapshot_does_not_modify_original) ... ok
+test_path_traversal_refused (test_round4_integrity.Upstreams.test_path_traversal_refused) ... ok
+test_pinned_text_import (test_round4_integrity.Upstreams.test_pinned_text_import) ... ok
+test_script_import_refused (test_round4_integrity.Upstreams.test_script_import_refused) ... ok
+test_cli_requires_real_brief (test_round5_delivery.DeliveryContracts.test_cli_requires_real_brief) ... Error: ValidationError: Real runs require --brief; use demo for fixtures
+ok
+test_demo_overrides_real_provider_and_retrieval (test_round5_delivery.DeliveryContracts.test_demo_overrides_real_provider_and_retrieval) ... ok
+test_duplicate_json_keys_refused (test_round5_delivery.DeliveryContracts.test_duplicate_json_keys_refused) ... ok
+test_native_global_provider_not_reused_as_reviewer (test_round5_delivery.DeliveryContracts.test_native_global_provider_not_reused_as_reviewer) ... ok
+test_native_moving_commit_refused (test_round5_delivery.DeliveryContracts.test_native_moving_commit_refused) ... ok
+test_packaging_contains_six_prompts (test_round5_delivery.DeliveryContracts.test_packaging_contains_six_prompts) ... ok
+test_native_snapshot_and_host_contract (test_round5_delivery.NativeHostProtocol.test_native_snapshot_and_host_contract) ... ok
+test_api_error_body_not_disclosed (test_round5_delivery.Protocols.test_api_error_body_not_disclosed) ... ok
+test_api_protocol_over_local_http_server (test_round5_delivery.Protocols.test_api_protocol_over_local_http_server) ... ok
+test_api_redirect_refused (test_round5_delivery.Protocols.test_api_redirect_refused) ... ok
+test_api_truncation_reported (test_round5_delivery.Protocols.test_api_truncation_reported) ... ok
+test_codex_documented_command_and_usage (test_round5_delivery.Protocols.test_codex_documented_command_and_usage) ... ok
+test_external_adapter_real_subprocess (test_round5_delivery.Protocols.test_external_adapter_real_subprocess) ... ok
+test_native_execution_is_explicitly_gated (test_round5_delivery.Protocols.test_native_execution_is_explicitly_gated) ... ok
+test_negative_usage_not_accepted (test_round5_delivery.Protocols.test_negative_usage_not_accepted) ... ok
+test_retrieval_failure_marks_partial_not_novel (test_round5_delivery.Protocols.test_retrieval_failure_marks_partial_not_novel) ... ok
+test_changed_file_refuses_publication (test_round5_delivery.PublishSafety.test_changed_file_refuses_publication) ... ok
+test_default_private_dry_run_creates_nothing (test_round5_delivery.PublishSafety.test_default_private_dry_run_creates_nothing) ... ok
+test_missing_gh_does_not_claim_publish (test_round5_delivery.PublishSafety.test_missing_gh_does_not_claim_publish) ... ok
+test_release_docs_allowed (test_round5_delivery.PublishSafety.test_release_docs_allowed) ... ok
+test_sensitive_files_excluded (test_round5_delivery.PublishSafety.test_sensitive_files_excluded) ... ok
+test_unexpected_owner_characters_refused (test_round5_delivery.PublishSafety.test_unexpected_owner_characters_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 91 tests in 5.338s
+
+OK
+{
+  "status": "completed",
+  "candidates": 6,
+  "synthetic_demo": true,
+  "report": "/tmp/tmp5p1a7lvq/run/report.html"
+}

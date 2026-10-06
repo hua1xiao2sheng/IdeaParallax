@@ -1,0 +1,8 @@
+{
+  "orchestra": {"name": "Orchestra · 多视角构思", "repository": "Orchestra-Research/AI-Research-SKILLs", "entry": "21-research-ideation/brainstorming-research-ideas/SKILL.md", "mode": "strategy_port", "license_note": "Original IdeaParallax implementation inspired by public methodology; no upstream files bundled."},
+  "aris": {"name": "ARIS · 文献缺口与大胆候选", "repository": "wanshuiyin/Auto-claude-code-research-in-sleep", "entry": "skills/skills-codex/idea-creator/SKILL.md", "mode": "strategy_port", "license_note": "Not a full ARIS run; native review and pilot steps are not represented as executed."},
+  "ideaspark": {"name": "IdeaSpark · 瓶颈与核心机制", "repository": "microsoft/ResearchStudio", "entry": "ResearchStudio-Idea/skills/idea_spark/SKILL.md", "mode": "strategy_port", "license_note": "Not the upstream navigator or its validated idea-card pipeline."},
+  "kdense": {"name": "K-Dense · 独立发散与反假设", "repository": "K-Dense-AI/scientific-agent-skills", "entry": "skills/scientific-brainstorming/SKILL.md", "mode": "strategy_port", "license_note": "Independent port; never implies hypothesis validation or institutional approval."},
+  "evoskills": {"name": "EvoSkills · 三角色多路线", "repository": "EvoScientist/EvoSkills", "entry": "skills/research-ideation/SKILL.md", "mode": "strategy_port", "license_note": "Compact strategy port; no claim of executing original Elo tournament or paper-navigator scripts."},
+  "scientist-v2": {"name": "AI-Scientist-v2 · 实验导向假说", "repository": "SakanaAI/AI-Scientist-v2", "entry": "ai_scientist/perform_ideation_temp_free.py", "mode": "strategy_port", "license_note": "Ideation-inspired port only; upstream code/license is not redistributed; no experimental tree search is run."}
+}

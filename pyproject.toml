@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "idea-parallax"
+version = "0.1.0"
+description = "Independent parallel research ideation with project provenance and evidence-aware review"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "IdeaParallax contributors"}]
+dependencies = []
+
+[project.scripts]
+idea-parallax = "idea_parallax.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["idea_parallax*"]
+
+[tool.setuptools.package-data]
+idea_parallax = ["data/*.json", "data/strategies/*.md"]

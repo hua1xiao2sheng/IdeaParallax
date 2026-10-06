@@ -1,0 +1,6 @@
+Chromium headless, 2026-10-05
+Browser policy disallowed file:// navigation. Rendered already-generated HTML using set_content without changing browser policy.
+Desktop: six cards rendered, SYNTHETIC DEMO visible, filtering and clearing worked.
+Mobile assertion failed: page scrollWidth=445px at viewport width=390px.
+Inspection: unbroken run fingerprint in footer extended to x=445.4375.
+Fix: inherited overflow wrapping, shrinkable search input and fixed table layout.

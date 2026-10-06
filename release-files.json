@@ -1,0 +1,271 @@
+{
+  "project": "IdeaParallax",
+  "version": "0.1.0",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "ce33f375eae7002c4e18ba21cd0dba33359617df102ceea50b68687762843831"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "caaad5008bc92ba233456a7731757bcd72960cc4ecb8a74f39bffcf8727d5ebb"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "7bd8b97c6e1ee70b4bb242bf52d003f5dd5337a2c9bd728df4f515fec3e74e45"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "8ebe9efe8a6669711d11abfb4a0790d43c820192e494eee93bc63b8c3d98c5ee"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "5207e87ae3490a1b9830fa88d8eef154d5addeb61224fec8f317a3bfa26281ed"
+    },
+    {
+      "path": "README.md",
+      "sha256": "56d24c3eff2bc9b33877bb4b21ba45a8cf108cfd5e4c099d880ac6c7b78f9a26"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "5818ab92a72f937828cc3d13300637007258ba2f0c2ada7e17d40899be6d73cb"
+    },
+    {
+      "path": "configs/api.json",
+      "sha256": "0e1d5644e680464f1e9bee6eecba0938b7037266d0ce162ff7ac265f64c5464d"
+    },
+    {
+      "path": "configs/codex.json",
+      "sha256": "02fafe71ef08659e426d85769abdf2c0daae71b701f9a39df92c82f980117d29"
+    },
+    {
+      "path": "docs/ADAPTERS.md",
+      "sha256": "801be2b0f3bc2a8c9d230dd7f2f531bf81a82553aa9858c7dab986fc6fd1aea5"
+    },
+    {
+      "path": "docs/AUDIT.md",
+      "sha256": "05780812f22083ff6641dee0a9a63abc00ecf5855db964ca78f23740df70053a"
+    },
+    {
+      "path": "docs/SOURCES.md",
+      "sha256": "4f6a47c2ccf1a46158f2a1d56b0da5b6a6af9863c07ee4a6945f40bf81af3796"
+    },
+    {
+      "path": "docs/audits/github-publication.txt",
+      "sha256": "c216dcae0fa50584efead14464599aba1c1f64f4a45613c8197514daa14b0fe2"
+    },
+    {
+      "path": "docs/audits/round-1-tests.txt",
+      "sha256": "57c3a87abacdc2c1ff8fd8af63a99322497f22acbba080465a0c26cde4e83c75"
+    },
+    {
+      "path": "docs/audits/round-1.md",
+      "sha256": "466903249b95878a167874e2fcb71572968abe25fd2b2051f1b8d90b3c39dd22"
+    },
+    {
+      "path": "docs/audits/round-2-before.txt",
+      "sha256": "d1232e5c6f4e2c0baba3d7a37b7b80fedb207c8b649453b084a5cb22ed3440eb"
+    },
+    {
+      "path": "docs/audits/round-2-tests.txt",
+      "sha256": "50bb3011d1c28546266c6d9fa6687bdbeb6aae86131bbdd8b2f6516e70be22a8"
+    },
+    {
+      "path": "docs/audits/round-2.md",
+      "sha256": "ffb6b9b5e3039e7efefabb3244cc68b635d5c615101808664795b2d3e41935bd"
+    },
+    {
+      "path": "docs/audits/round-3-before.txt",
+      "sha256": "73c640087e8749d032c1b3059cfa49dd58248caf4c310cfebefb165585bc2665"
+    },
+    {
+      "path": "docs/audits/round-3-tests.txt",
+      "sha256": "500b24f7b990e6035ac0a294de632c8c80f8b678421752b90f034537f693514a"
+    },
+    {
+      "path": "docs/audits/round-3.md",
+      "sha256": "e98598c6d27b2a61090f6606d348f161c92f631cc8e526daaa61023938c01d0a"
+    },
+    {
+      "path": "docs/audits/round-4-before.txt",
+      "sha256": "4681b388042194ff54ccd8e5984c49cab87643ac79df280b220aa93f6209fc69"
+    },
+    {
+      "path": "docs/audits/round-4-tests.txt",
+      "sha256": "b60fb409fb6755528e5f05f3d0b2329b6c8662e259dc9280dfc67602699b86f9"
+    },
+    {
+      "path": "docs/audits/round-4.md",
+      "sha256": "0dce795fd244209536d36fde9442661834cdfc66f73887f55cab764fbe21e9ef"
+    },
+    {
+      "path": "docs/audits/round-5-before.txt",
+      "sha256": "0707596a608179776ed2ff6ca9c46359267bed0172f91dca304a5890ee8d9024"
+    },
+    {
+      "path": "docs/audits/round-5-browser-before.txt",
+      "sha256": "e6d5a93f7a474feae4c52ac4b5c213d36242e0be92f69d11b8e58fc90bb5cc37"
+    },
+    {
+      "path": "docs/audits/round-5-browser.txt",
+      "sha256": "cbbd5e76a680097ab3dcecb27eadd96143f24adf3001b3e877ef8b34f364d329"
+    },
+    {
+      "path": "docs/audits/round-5-build-network.txt",
+      "sha256": "6d426593ea6cb851bf2d8ca776a6fea07cebd039c141bfddb4838db8b65c86b6"
+    },
+    {
+      "path": "docs/audits/round-5-install.txt",
+      "sha256": "b56b17d56fab688f58fef495a1a613b0aef0a65f87d53a9b3d04b8b477267641"
+    },
+    {
+      "path": "docs/audits/round-5-smoke.txt",
+      "sha256": "b2857b910eae0377f9e8e59d4e000064d825b892877d509983d93264b9ce5f51"
+    },
+    {
+      "path": "docs/audits/round-5-tests.txt",
+      "sha256": "d49042e251309737a3f60905147fe467213fbf948741fb5ecbcc47dad1ae3a52"
+    },
+    {
+      "path": "docs/audits/round-5-wheel.txt",
+      "sha256": "f46e515f82cd0b9d43490aa1dd09484f1482c410fcea343fc891c6362edcfe5f"
+    },
+    {
+      "path": "docs/audits/round-5.md",
+      "sha256": "d6c292e540f04f5932c58ed468bfaa8d3b49e047d02c878f6eab079650919e3a"
+    },
+    {
+      "path": "examples/research.json",
+      "sha256": "c7be01b1d3e913ce5ad7b2749cad7dc1d5a5742994ae45df5117b5323c8736c4"
+    },
+    {
+      "path": "idea_parallax/__init__.py",
+      "sha256": "81862aa606bb074b71d44936df1edc0700a17352272856d49a5363ac1bdf63f1"
+    },
+    {
+      "path": "idea_parallax/__main__.py",
+      "sha256": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4"
+    },
+    {
+      "path": "idea_parallax/aggregation.py",
+      "sha256": "7eef1e8efdbd55e4f737061a75cab17de56dff25c3b8993576feace811dcfacd"
+    },
+    {
+      "path": "idea_parallax/catalog.py",
+      "sha256": "ff23076c0b5dfc442cef08e77983eacf0f6044bb54c6fe6e02ebe954cbcdc267"
+    },
+    {
+      "path": "idea_parallax/cli.py",
+      "sha256": "917877e3d5b0ab97f16b27b29b657279bb70cd569b30eb80bc945b60b4769331"
+    },
+    {
+      "path": "idea_parallax/config.py",
+      "sha256": "90138576fde773116012eca5957a62a16b8d20dcce49f1400ae7c7de05ca7451"
+    },
+    {
+      "path": "idea_parallax/contracts.py",
+      "sha256": "4ad88be57992f74d4c3cba245365e026cb91ff3f22fc40a1c1ac24ce45028d63"
+    },
+    {
+      "path": "idea_parallax/data/catalog.json",
+      "sha256": "20b75c9857f8b82675f4bf1588732151164d0b889788f4af19b077224b8d0fad"
+    },
+    {
+      "path": "idea_parallax/data/strategies/aris.md",
+      "sha256": "2f8e5b525605d3c44faa866ed2c5ee44487475c6e50c98cf3e5ed2dd5f9c6c0a"
+    },
+    {
+      "path": "idea_parallax/data/strategies/evoskills.md",
+      "sha256": "1c86dea0ecc00e064d286fda127998966aacf97d11344978f5b56cec167beadf"
+    },
+    {
+      "path": "idea_parallax/data/strategies/ideaspark.md",
+      "sha256": "bdb18b1ce5c7107c5047fcbf838d925290930e196be215c7ce48b99f2ca8b30c"
+    },
+    {
+      "path": "idea_parallax/data/strategies/kdense.md",
+      "sha256": "c1f9f48630b9e4cf5d140203578a23054137efcd93f11bb34e7bb56cf7e0ee26"
+    },
+    {
+      "path": "idea_parallax/data/strategies/orchestra.md",
+      "sha256": "39cef4137f9088d170f55d66f825c7553899780b5d6ccedbe5aeecb39c7f5fd1"
+    },
+    {
+      "path": "idea_parallax/data/strategies/scientist-v2.md",
+      "sha256": "cadbd0f46dfd472b576c93309e4ca2cdc23f06c1458db5fddc09cd2b274ca829"
+    },
+    {
+      "path": "idea_parallax/demo.py",
+      "sha256": "4693a9092fecd47e14000803dfb663c72da02a46b95db3b9753e4655e1e686a2"
+    },
+    {
+      "path": "idea_parallax/engine.py",
+      "sha256": "f6ee302d9e345f623ded5c1c441c9f75ddd85ce2ec3822313f936f995e73d82c"
+    },
+    {
+      "path": "idea_parallax/io_utils.py",
+      "sha256": "971826d8155db40366aa4bf0cb367ebb60fe300e9a1743b4b38714c968c64a20"
+    },
+    {
+      "path": "idea_parallax/native.py",
+      "sha256": "26a008d50878d6fc713f41116ccc7cff251d2e44f7cb2f98797925ca04a63aa4"
+    },
+    {
+      "path": "idea_parallax/providers.py",
+      "sha256": "b99506bb5e87d35539d8345d9508ee3f3c767db1fede1d4b057220c37fbd2d92"
+    },
+    {
+      "path": "idea_parallax/report.py",
+      "sha256": "e0055a540fd9bafa6598c0bc59dc0e2c0561c623d4d2b2364fcaf216fcab9a74"
+    },
+    {
+      "path": "idea_parallax/retrieval.py",
+      "sha256": "f2bbde8ef620716d70911e0836c5af0f961f6ac32ff687b8a38bf523e4c1bf0b"
+    },
+    {
+      "path": "idea_parallax/upstreams.py",
+      "sha256": "9d32a9b5a070924345e8e6fbbea0f756011c3ae890684c48e2973cfde50e945e"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "da4ae183bfa61b59817a5f58225406f924c13210c69ffbbd771ac5820bafe901"
+    },
+    {
+      "path": "scripts/build_release.py",
+      "sha256": "4472db1fa5c7ab21f4c1cccc27cd90c73669c0a432a15c00b875982a4127728a"
+    },
+    {
+      "path": "scripts/publish_github.py",
+      "sha256": "9b73ef62624b157280a77f9644b131956909b6726296534dba3e0dd85a4ff50b"
+    },
+    {
+      "path": "skills/idea-parallax/SKILL.md",
+      "sha256": "4663c8fa6d40139a9230094a1633a561b821a7dec5858edf6e430c7b042683a8"
+    },
+    {
+      "path": "tests/helpers.py",
+      "sha256": "24afb24fee5679cc68c20866df1f022aa878a4d9eea33c833f8039cfee0493a2"
+    },
+    {
+      "path": "tests/test_round1_contracts.py",
+      "sha256": "8b7839990ea5d0bcf373117e64bfbdabf7c8f3c9f405770681a8681ea4b29c2b"
+    },
+    {
+      "path": "tests/test_round2_security.py",
+      "sha256": "1784a8ec4d9651e1a24d6983b3948ba9152b878e5ff64ad474b43a91d8614e51"
+    },
+    {
+      "path": "tests/test_round3_reliability.py",
+      "sha256": "d43b57895feba190c781f82e1cd38a422ab3eac60d99cd73424139fddf0d7a94"
+    },
+    {
+      "path": "tests/test_round4_integrity.py",
+      "sha256": "cdd43262d1f3d6eceaa746d6833723bdac7dc83517dbea6fc8ab69af0f487c0c"
+    },
+    {
+      "path": "tests/test_round5_delivery.py",
+      "sha256": "5b22e8a91ad47c755707193d1ec68cd02b6eaef3ae1ff22e292b55cacdbf7fa3"
+    }
+  ],
+  "note": "Checksums detect changes; this is not a cryptographic author signature. Runtime inputs and credentials are excluded."
+}

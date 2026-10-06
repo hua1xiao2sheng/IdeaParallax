@@ -1,0 +1,15 @@
+{
+  "provider": {"type": "codex", "model": "", "timeout_seconds": 600},
+  "concurrency": 3,
+  "max_calls": 20,
+  "retries": 1,
+  "review": true,
+  "branches": [
+    {"id": "orchestra", "strategy": "orchestra", "max_ideas": 3},
+    {"id": "aris", "strategy": "aris", "max_ideas": 3},
+    {"id": "ideaspark", "strategy": "ideaspark", "max_ideas": 1},
+    {"id": "kdense", "strategy": "kdense", "max_ideas": 3},
+    {"id": "evoskills", "strategy": "evoskills", "max_ideas": 3},
+    {"id": "scientist", "strategy": "scientist-v2", "max_ideas": 3}
+  ]
+}

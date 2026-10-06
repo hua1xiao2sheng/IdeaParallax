@@ -1,0 +1,10 @@
+WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Processing /mnt/data/IdeaParallax
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: idea-parallax
+  Building wheel for idea-parallax (pyproject.toml): started
+  Building wheel for idea-parallax (pyproject.toml): finished with status 'done'
+  Created wheel for idea-parallax: filename=idea_parallax-0.1.0-py3-none-any.whl size=40728 sha256=930ec4ff28a9f7dd1cd2e29b3224750388e7c2e4fcfd0f968f11433f2df78552
+  Stored in directory: /tmp/pip-ephem-wheel-cache-1g9cumjw/wheels/78/6b/a5/6bbf69408a0b9be54a3ed0f80c0ce9ad119652b53853e947a9
+Successfully built idea-parallax
