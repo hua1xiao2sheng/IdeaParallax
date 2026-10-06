@@ -58,7 +58,11 @@ def safe_env(config: dict, codex: bool = False) -> dict:
     if codex:
         allowed |= {"CODEX_HOME", "CODEX_API_KEY", "OPENAI_API_KEY"}
     allowed |= set(config.get("env_allowlist", []))
-    return {key: val for key, val in os.environ.items() if key in allowed}
+    environment = {key: val for key, val in os.environ.items() if key in allowed}
+    # The adapter wire protocol is UTF-8, including Python children on Windows.
+    # Do not inherit a locale-dependent or explicitly incompatible pipe encoding.
+    environment.update({"PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"})
+    return environment
 
 async def run_process(command: list[str], stdin: str, cwd: Path, timeout: int, env: dict) -> tuple[str, str]:
     """Drain pipes while terminating: waiting on a killed, undrained child can deadlock."""

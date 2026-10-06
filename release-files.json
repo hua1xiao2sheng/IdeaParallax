@@ -24,7 +24,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "56d24c3eff2bc9b33877bb4b21ba45a8cf108cfd5e4c099d880ac6c7b78f9a26"
+      "sha256": "58ff9c397607178abddab0c1299f08b495fff742d14859134e158680470f049f"
     },
     {
       "path": "SECURITY.md",
@@ -44,7 +44,11 @@
     },
     {
       "path": "docs/AUDIT.md",
-      "sha256": "05780812f22083ff6641dee0a9a63abc00ecf5855db964ca78f23740df70053a"
+      "sha256": "58ea3ee6911ed0429401a78b531ed6be8749d1f510264a46c397a6fc60d3eb23"
+    },
+    {
+      "path": "docs/PUBLICATION.md",
+      "sha256": "1a7778cfa5d19d993a65e83a7845b9671a7048a863318a5d0d4818cc1a432c88"
     },
     {
       "path": "docs/SOURCES.md",
@@ -212,7 +216,7 @@
     },
     {
       "path": "idea_parallax/providers.py",
-      "sha256": "b99506bb5e87d35539d8345d9508ee3f3c767db1fede1d4b057220c37fbd2d92"
+      "sha256": "ce9ce7b3203890564963fff920235631ad9f8e8590e281c6d4c32ca8161bc976"
     },
     {
       "path": "idea_parallax/report.py",
@@ -252,7 +256,7 @@
     },
     {
       "path": "tests/test_round2_security.py",
-      "sha256": "1784a8ec4d9651e1a24d6983b3948ba9152b878e5ff64ad474b43a91d8614e51"
+      "sha256": "f09417e8fdb310c23535c33f6f5d5b44774cfadd21b0d70bc47c1d988c7ba789"
     },
     {
       "path": "tests/test_round3_reliability.py",

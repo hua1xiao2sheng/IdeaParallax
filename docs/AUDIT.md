@@ -47,8 +47,13 @@ python -m idea_parallax demo --out runs/audit-demo --resume
 
 ## GitHub 发布状态
 
-**本次尚未发布到 GitHub。** 已连接账户提供的接口只有读取能力；当前运行
-环境有 git，但没有 gh、Codex CLI 或可用的已认证发布通道。
+**2026-10-06 更新：项目已上传至 `hua1xiao2sheng/IdeaParallax` 的 `main` 分支。**
+完整源文件发布提交为 `ceff9e3cf7a75cd62c631603527067ecba136d13`，其 Git tree
+与原始 67 文件交付包完全一致。后续发布与 CI 核验见 [PUBLICATION.md](PUBLICATION.md)。
+
+以下是 2026-10-05 的发布前历史记录，不代表当前仓库仍为空：最初没有完成发布，
+环境中没有 gh。先前将连接概括为“只有读取能力”不准确；后来确认可以向已有仓库
+写入，但当时没有创建仓库接口。用户自行创建新仓库后，已通过连接器完成上传。
 [实际发布前置检查日志](audits/github-publication.txt) 记录缺少 gh 导致停止，
 没有创建远程仓库，更没有修改旧仓库。
 

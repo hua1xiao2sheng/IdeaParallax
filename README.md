@@ -1,5 +1,7 @@
 # IdeaParallax
 
+[GitHub 仓库](https://github.com/hua1xiao2sheng/IdeaParallax) · [发布核验](docs/PUBLICATION.md) · [五轮检查](docs/AUDIT.md)
+
 **一个研究输入，多种独立策略；先各自构思，再带着证据一起比较。**
 
 IdeaParallax 是一个**全新、独立的科研构思项目**。不修改、不依赖 OpenClaw、DSH、PaperForge 或以前的融合型 Idea Engine。它不会让总控先选方向再要求所有分支附和。
@@ -135,7 +137,7 @@ python scripts/publish_github.py --owner hua1xiao2sheng
 python scripts/publish_github.py --owner hua1xiao2sheng --execute
 ```
 
-本交付是否已在 GitHub 发布，以最终交付说明和实际远程仓库核验为准，不因包含发布脚本就算发布成功。
+本项目已发布到上方 GitHub 仓库。此脚本仅适用于创建一个全新的仓库，不应用于更新已经存在的 IdeaParallax；已有仓库请正常使用 Git 提交与推送。首次发布核验见 [PUBLICATION.md](docs/PUBLICATION.md)。
 
 ## 上游依据与许可
 

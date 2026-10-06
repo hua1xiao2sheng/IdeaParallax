@@ -29,6 +29,15 @@ class Security(unittest.TestCase):
             self.assertEqual(safe_env({'env_allowlist':['TEST_ALLOWED']})['TEST_ALLOWED'], 'ok')
     def test_invalid_allowlist_fails_early(self):
         with self.assertRaises(ValidationError): provider_config({'type':'codex','env_allowlist':'ALL'})
+    def test_python_child_protocol_uses_utf8(self):
+        env = safe_env({})
+        self.assertEqual(env['PYTHONUTF8'], '1')
+        self.assertEqual(env['PYTHONIOENCODING'], 'utf-8')
+    def test_host_encoding_does_not_override_utf8_protocol(self):
+        with patch.dict(os.environ, {'PYTHONUTF8': '0', 'PYTHONIOENCODING': 'cp1252'}):
+            env = safe_env({'env_allowlist': ['PYTHONUTF8', 'PYTHONIOENCODING']})
+            self.assertEqual(env['PYTHONUTF8'], '1')
+            self.assertEqual(env['PYTHONIOENCODING'], 'utf-8')
     def test_direct_key_field_refused(self):
         with self.assertRaises(ValidationError): provider_config({'type':'api','api_key':'SECRET','model':'x'})
     def test_shell_string_refused(self):
@@ -61,7 +70,7 @@ class AsyncSecurity(unittest.IsolatedAsyncioTestCase):
         with tempfile.TemporaryDirectory() as d:
             b=brief(); b['topic']='<script>alert("x")</script><img src=x onerror=alert(1)>'
             root=Path(d)/'run'; await Engine(b,config(),root).run()
-            html=(root/'report.html').read_text()
+            html=(root/'report.html').read_text(encoding='utf-8')
             self.assertNotIn('<script>alert(',html)
             self.assertNotIn('<img src=x',html)
             self.assertIn('&lt;script&gt;',html)
@@ -76,4 +85,4 @@ class AsyncSecurity(unittest.IsolatedAsyncioTestCase):
                 r=await Engine(brief(),c,root,allow_commands=True).run()
             self.assertEqual(r['status'],'failed')
             for f in root.rglob('*.json'):
-                self.assertNotIn(secret,f.read_text())
+                self.assertNotIn(secret,f.read_text(encoding='utf-8'))
