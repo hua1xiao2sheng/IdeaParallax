@@ -19,4 +19,4 @@ idea-parallax = "idea_parallax.cli:main"
 include = ["idea_parallax*"]
 
 [tool.setuptools.package-data]
-idea_parallax = ["data/*.json", "data/strategies/*.md"]
+idea_parallax = ["data/*.json", "data/strategies/*.md", "data/web/*"]

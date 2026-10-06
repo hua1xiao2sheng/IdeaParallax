@@ -24,7 +24,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "58ff9c397607178abddab0c1299f08b495fff742d14859134e158680470f049f"
+      "sha256": "bb14251daa519595a098989732462797e02f6835246ff35ce951619d1846e87d"
     },
     {
       "path": "SECURITY.md",
@@ -44,7 +44,7 @@
     },
     {
       "path": "docs/AUDIT.md",
-      "sha256": "58ea3ee6911ed0429401a78b531ed6be8749d1f510264a46c397a6fc60d3eb23"
+      "sha256": "aa298e01adb8a7b61800aed691954cd6fb08f91a737bfc8e3939a92bd3a826c9"
     },
     {
       "path": "docs/PUBLICATION.md",
@@ -53,6 +53,14 @@
     {
       "path": "docs/SOURCES.md",
       "sha256": "4f6a47c2ccf1a46158f2a1d56b0da5b6a6af9863c07ee4a6945f40bf81af3796"
+    },
+    {
+      "path": "docs/WEBUI.md",
+      "sha256": "5fff5514ff0bf23ff6f3ca2171ff17dc06640ee53bed8bc53f2c2eeeb1a740bd"
+    },
+    {
+      "path": "docs/WEBUI_CHECKS.md",
+      "sha256": "dc7328433b1a5049fcdab018e4f089864da0447076331d29893606ae99a5a016"
     },
     {
       "path": "docs/audits/github-publication.txt",
@@ -160,11 +168,15 @@
     },
     {
       "path": "idea_parallax/cli.py",
-      "sha256": "917877e3d5b0ab97f16b27b29b657279bb70cd569b30eb80bc945b60b4769331"
+      "sha256": "61f17196ad9147a474db9e8a245fcfcc4e3afb83242ba06e5f56d997cccdf7d7"
+    },
+    {
+      "path": "idea_parallax/codex_host.py",
+      "sha256": "a044359a72e7bd395a984f0002f5743568e099eacc3581d178353b072ba92242"
     },
     {
       "path": "idea_parallax/config.py",
-      "sha256": "90138576fde773116012eca5957a62a16b8d20dcce49f1400ae7c7de05ca7451"
+      "sha256": "5ab7017a3cea7e308d3d806050aad7276f364e852f3ad2a16986596f5eaa6cf2"
     },
     {
       "path": "idea_parallax/contracts.py",
@@ -199,12 +211,24 @@
       "sha256": "cadbd0f46dfd472b576c93309e4ca2cdc23f06c1458db5fddc09cd2b274ca829"
     },
     {
+      "path": "idea_parallax/data/web/app.js",
+      "sha256": "c9a718dc0ae330f058069020dfa7f0457c259b4c897aa8e6ce915362753bde91"
+    },
+    {
+      "path": "idea_parallax/data/web/index.html",
+      "sha256": "495b04adb5cc7613283f0cedfb21e4b8bf0e50e782e81aec2787f71704218326"
+    },
+    {
+      "path": "idea_parallax/data/web/style.css",
+      "sha256": "d217c5d569b42bbbf2c993a6e60d511d066b0b016ded16c903c725cd48446f08"
+    },
+    {
       "path": "idea_parallax/demo.py",
       "sha256": "4693a9092fecd47e14000803dfb663c72da02a46b95db3b9753e4655e1e686a2"
     },
     {
       "path": "idea_parallax/engine.py",
-      "sha256": "f6ee302d9e345f623ded5c1c441c9f75ddd85ce2ec3822313f936f995e73d82c"
+      "sha256": "536809b276dd2a81b81398c3ba9929b28596a0b8fd7dadde8a337b911dff5fc0"
     },
     {
       "path": "idea_parallax/io_utils.py",
@@ -216,7 +240,7 @@
     },
     {
       "path": "idea_parallax/providers.py",
-      "sha256": "ce9ce7b3203890564963fff920235631ad9f8e8590e281c6d4c32ca8161bc976"
+      "sha256": "bf8f6fdbda0a7ad0cb853634652980c7abcd98f9d771bb3358a34169081ad1ac"
     },
     {
       "path": "idea_parallax/report.py",
@@ -231,8 +255,12 @@
       "sha256": "9d32a9b5a070924345e8e6fbbea0f756011c3ae890684c48e2973cfde50e945e"
     },
     {
+      "path": "idea_parallax/web.py",
+      "sha256": "4e4ce7db00106b80d67580ed344d913d7778e878a7c0b1a1fe53626ba7f81e49"
+    },
+    {
       "path": "pyproject.toml",
-      "sha256": "da4ae183bfa61b59817a5f58225406f924c13210c69ffbbd771ac5820bafe901"
+      "sha256": "ffb81e5a0e5dc623f0199d7c3385a63eeb8ea93f9c54e3afd4d1a1d7a33d22ac"
     },
     {
       "path": "scripts/build_release.py",
@@ -241,6 +269,14 @@
     {
       "path": "scripts/publish_github.py",
       "sha256": "9b73ef62624b157280a77f9644b131956909b6726296534dba3e0dd85a4ff50b"
+    },
+    {
+      "path": "scripts/start-web.cmd",
+      "sha256": "84927b3599d9e7b44efe44cb366c1d8a49105bc15868aa485d87d9a9007b2887"
+    },
+    {
+      "path": "scripts/start-web.sh",
+      "sha256": "77ddd759909c30e9e422f564f516a9a5720c053f6f365503b98febdbbf769f51"
     },
     {
       "path": "skills/idea-parallax/SKILL.md",
@@ -269,6 +305,10 @@
     {
       "path": "tests/test_round5_delivery.py",
       "sha256": "5b22e8a91ad47c755707193d1ec68cd02b6eaef3ae1ff22e292b55cacdbf7fa3"
+    },
+    {
+      "path": "tests/test_web_dashboard.py",
+      "sha256": "901f969d8232c2525bd3d4aac01b0d4e6c267f7bd82c0473b4335408b5c71834"
     }
   ],
   "note": "Checksums detect changes; this is not a cryptographic author signature. Runtime inputs and credentials are excluded."

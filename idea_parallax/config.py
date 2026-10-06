@@ -42,7 +42,7 @@ def validate_config(raw: dict) -> dict:
     return config
 
 def provider_config(raw: dict) -> dict:
-    if not isinstance(raw, dict) or set(raw) - {"type", "model", "base_url", "api_key_env", "timeout_seconds", "max_output_tokens", "command", "env_allowlist", "codex_binary", "repository_path", "commit", "entry", "allow_network"}:
+    if not isinstance(raw, dict) or set(raw) - {"type", "model", "base_url", "api_key_env", "timeout_seconds", "max_output_tokens", "command", "env_allowlist", "codex_binary", "repository_path", "commit", "entry", "allow_network", "subscription_only"}:
         raise ValidationError("Unknown provider field (never place secrets in config)")
     p = copy.deepcopy(raw)
     import re
@@ -50,6 +50,8 @@ def provider_config(raw: dict) -> dict:
     if (not isinstance(allowlist, list) or len(allowlist) > 30 or
         any(not isinstance(k, str) or not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]{0,100}", k) for k in allowlist)):
         raise ValidationError("env_allowlist must contain environment variable names")
+    if type(p.get("subscription_only", False)) is not bool:
+        raise ValidationError("subscription_only must be boolean")
     if "codex_binary" in p:
         text(p["codex_binary"], "codex_binary", 4000)
     if p.get("type") not in ("codex", "api", "demo", "command", "native-codex"):

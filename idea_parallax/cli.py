@@ -30,6 +30,11 @@ def parser():
         run.add_argument("--allow-commands", action="store_true", help="Opt into trusted configured external programs")
         run.add_argument("--trust-upstream", action="store_true", help="Opt into reviewed imported instruction files")
         run.add_argument("--retrieval", choices=("none", "crossref"), default="none", help="Crossref sends research queries to an external service")
+    web = sub.add_parser("web", help="Local dashboard with Codex subscription login and live progress")
+    web.add_argument("--port", type=int, default=8765)
+    web.add_argument("--data-dir", type=Path, default=Path("runs/webui"))
+    web.add_argument("--open", action="store_true", help="Open the dashboard in your browser")
+    web.add_argument("--codex-binary", default="codex", help="Local Codex executable, never a shell command")
     imp = sub.add_parser("import-upstream", help="Import explicit text files from a local clone at a full commit SHA")
     imp.add_argument("--repo", type=Path, required=True)
     imp.add_argument("--commit", required=True)
@@ -40,6 +45,12 @@ def parser():
 def main(argv=None):
     args = parser().parse_args(argv)
     try:
+        if args.command == "web":
+            from .web import serve
+            if not 0 <= args.port <= 65535:
+                raise ValidationError("Port must be between 0 and 65535")
+            serve(args.data_dir, args.port, args.open, args.codex_binary)
+            return 0
         if args.command == "catalog":
             print(json.dumps(catalog(), ensure_ascii=False, indent=2))
             return 0

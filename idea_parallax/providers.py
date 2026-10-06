@@ -6,6 +6,8 @@ import json
 import os
 from pathlib import Path
 import signal
+import shutil
+import subprocess
 import time
 from urllib.parse import urlsplit
 from urllib.request import Request, build_opener, HTTPRedirectHandler
@@ -79,6 +81,13 @@ async def run_process(command: list[str], stdin: str, cwd: Path, timeout: int, e
             with contextlib.suppress(ProcessLookupError):
                 os.killpg(proc.pid, signal.SIGKILL)
         elif proc.returncode is None:
+            # npm/Node may own a Rust Codex child on Windows. Stop only our
+            # process tree, not unrelated Codex sessions using the same account.
+            taskkill = Path(os.environ.get("SystemRoot", r"C:\Windows")) / "System32" / "taskkill.exe"
+            if taskkill.is_file():
+                with contextlib.suppress(OSError, subprocess.SubprocessError):
+                    subprocess.run([str(taskkill), "/PID", str(proc.pid), "/T", "/F"],
+                                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=5)
             with contextlib.suppress(ProcessLookupError):
                 proc.kill()
 
@@ -191,16 +200,27 @@ class Provider:
             schema_path = workspace / "output-schema.json"
             result_path = workspace / "codex-final.json"
             write_json(schema_path, schema)
-            command = [p.get("codex_binary", "codex"), "exec", "--skip-git-repo-check", "--ephemeral",
+            from .codex_host import codex_command, check_codex, subscription_env
+            try:
+                prefix = codex_command(p.get("codex_binary", "codex")) if os.name == "nt" and shutil.which(p.get("codex_binary", "codex")) else [p.get("codex_binary", "codex")]
+            except RuntimeError as exc:
+                raise ProviderError(str(exc)) from None
+            if p.get("subscription_only", False):
+                auth = await asyncio.to_thread(check_codex, p.get("codex_binary", "codex"))
+                if not auth["chatgpt_login"]:
+                    raise ProviderError(auth["message"])
+            command = prefix + ["exec", "--skip-git-repo-check", "--ephemeral",
                        "--sandbox", "workspace-write" if native_mode else "read-only", "--json", "--output-schema", str(schema_path),
                        "--output-last-message", str(result_path)]
             if p["model"]:
                 command += ["--model", p["model"]]
             if native_mode and p.get("allow_network", False):
                 command += ["-c", "sandbox_workspace_write.network_access=true"]
+            if p.get("subscription_only", False):
+                command += ["-c", 'model_provider="openai"']
             command += ["-"]
             prompt = "Use only this task's evidence and assigned strategy; do not inspect other runs. Do not execute experiments, publish files, or call write-capable remote tools. Return the required JSON.\n" + canonical({"task": kind, "packet": payload})
-            out, _ = await run_process(command, prompt, actual_workspace, p["timeout_seconds"], safe_env(p, codex=True))
+            out, _ = await run_process(command, prompt, actual_workspace, p["timeout_seconds"], subscription_env() if p.get("subscription_only", False) else safe_env(p, codex=True))
             if not result_path.is_file() or result_path.is_symlink() or result_path.stat().st_size > MAX_JSON_BYTES:
                 raise ProviderError("Codex did not produce a bounded final result")
             result = parse_model_json(result_path.read_text(encoding="utf-8"))

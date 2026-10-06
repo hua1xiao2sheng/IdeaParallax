@@ -107,15 +107,21 @@ class Engine:
         previous = self.checkpoint(name, packet_hash)
         if previous:
             validator(previous["output"])
+            self.state["stages"][name] = "succeeded"
+            self.save_state()
             return previous
         stage_dir = self.root / "stages" / name
         write_json(stage_dir / "request.json", {"kind": kind, "packet_hash": packet_hash, "packet": payload, "schema": schema})
+        self.state["stages"][name] = "queued"
+        self.save_state()
         error = "not_started"
         attempts = []
         for index in range(self.config["retries"]+1):
             try:
                 async with self.semaphore:
                     await self.reserve_call()
+                    self.state["stages"][name] = "running"
+                    self.save_state()
                     with tempfile.TemporaryDirectory(prefix=f"idea-parallax-{name}-") as directory:
                         workspace = Path(directory)
                         write_json(workspace / "request.json", {"kind": kind, "packet": payload, "schema": schema})
@@ -142,6 +148,8 @@ class Engine:
             if "budget exhausted" in error:
                 break
             if index < self.config["retries"]:
+                self.state["stages"][name] = "retrying"
+                self.save_state()
                 await asyncio.sleep(min(2**index, 4))
         record = {"status": "failed", "packet_hash": packet_hash, "error": error, "attempts": attempts}
         record["checksum"] = digest(record)
@@ -190,6 +198,8 @@ class Engine:
             write_json(self.root / "manifest.json", manifest)
             self.state = {"calls_reserved": 0, "stages": {}, "status": "running"}
             self.save_state()
+        self.state["status"] = "running"
+        self.save_state()
         evidence_ids = {x["id"] for x in self.brief["seed_papers"]}
         work = []
         for branch in self.config["branches"]:
