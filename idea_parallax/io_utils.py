@@ -6,9 +6,15 @@ import os
 from pathlib import Path
 import re
 import tempfile
+import threading
 from typing import Any
 
 MAX_JSON_BYTES = 4 * 1024 * 1024
+
+# Windows cannot always replace a file while another thread holds a read handle.
+# Dashboard polling and engine checkpoints share these helpers in one process.
+# Serialize only the brief local I/O operation, not model calls or HTTP work.
+_STORAGE_LOCK = threading.RLock()
 
 class ValidationError(ValueError):
     """Invalid task, configuration, or model output."""
@@ -34,29 +40,31 @@ def unique_object(pairs: list[tuple[str, Any]]) -> dict:
     return result
 
 def load_json(path: Path) -> Any:
-    assert_no_symlinks(path)
-    if path.is_symlink() or path.stat().st_size > MAX_JSON_BYTES:
-        raise ValidationError("JSON file is a symlink or exceeds the size limit")
-    try:
-        return json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique_object, parse_constant=lambda _: (_ for _ in ()).throw(ValidationError("Non-finite JSON number")))
-    except (json.JSONDecodeError, UnicodeError) as exc:
-        raise ValidationError("Invalid UTF-8 JSON file") from exc
+    with _STORAGE_LOCK:
+        assert_no_symlinks(path)
+        if path.is_symlink() or path.stat().st_size > MAX_JSON_BYTES:
+            raise ValidationError("JSON file is a symlink or exceeds the size limit")
+        try:
+            return json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique_object, parse_constant=lambda _: (_ for _ in ()).throw(ValidationError("Non-finite JSON number")))
+        except (json.JSONDecodeError, UnicodeError) as exc:
+            raise ValidationError("Invalid UTF-8 JSON file") from exc
 
 def write_text(path: Path, text: str) -> None:
-    assert_no_symlinks(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    if path.is_symlink():
-        raise ValidationError("Refusing to replace a symlink")
-    fd, tmp = tempfile.mkstemp(prefix=".write-", dir=path.parent)
-    try:
-        with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as stream:
-            stream.write(text)
-            stream.flush()
-            os.fsync(stream.fileno())
-        os.replace(tmp, path)
-    finally:
-        if os.path.exists(tmp):
-            os.unlink(tmp)
+    with _STORAGE_LOCK:
+        assert_no_symlinks(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if path.is_symlink():
+            raise ValidationError("Refusing to replace a symlink")
+        fd, tmp = tempfile.mkstemp(prefix=".write-", dir=path.parent)
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as stream:
+                stream.write(text)
+                stream.flush()
+                os.fsync(stream.fileno())
+            os.replace(tmp, path)
+        finally:
+            if os.path.exists(tmp):
+                os.unlink(tmp)
 
 def write_json(path: Path, value: Any) -> None:
     write_text(path, json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + "\n")

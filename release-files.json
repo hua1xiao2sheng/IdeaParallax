@@ -60,7 +60,7 @@
     },
     {
       "path": "docs/WEBUI_CHECKS.md",
-      "sha256": "dc7328433b1a5049fcdab018e4f089864da0447076331d29893606ae99a5a016"
+      "sha256": "6d41efea3c9fc9e2b21a3f03abf374c1da0a04436910a416afdaa42d6f3a0502"
     },
     {
       "path": "docs/audits/github-publication.txt",
@@ -232,7 +232,7 @@
     },
     {
       "path": "idea_parallax/io_utils.py",
-      "sha256": "971826d8155db40366aa4bf0cb367ebb60fe300e9a1743b4b38714c968c64a20"
+      "sha256": "1f1ebf8ed0ab26aeedd1f35ae309572876f9de10a315419cf63c1669d0c1ad72"
     },
     {
       "path": "idea_parallax/native.py",
@@ -308,7 +308,7 @@
     },
     {
       "path": "tests/test_web_dashboard.py",
-      "sha256": "901f969d8232c2525bd3d4aac01b0d4e6c267f7bd82c0473b4335408b5c71834"
+      "sha256": "3fcaeae9ce742fe9117bade5b7d38b73849daa6a67690d8d866cdba167eac238"
     }
   ],
   "note": "Checksums detect changes; this is not a cryptographic author signature. Runtime inputs and credentials are excluded."

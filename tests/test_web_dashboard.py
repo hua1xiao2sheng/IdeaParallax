@@ -92,7 +92,7 @@ class WebLifecycle(unittest.TestCase):
         self.dash.close();self.temp.cleanup()
     def test_demo_persist_history_preview_and_export(self):
         ident=self.dash.start(task());snap=wait_done(self.dash,ident)
-        self.assertEqual(snap['status'],'completed');self.assertEqual(len(snap['candidates']),6)
+        self.assertEqual(snap['status'],'completed', snap);self.assertEqual(len(snap['candidates']),6)
         self.assertEqual(snap['calls'],8);self.assertTrue(snap['report_ready'])
         self.assertIn(b'SYNTHETIC DEMO',self.dash.export(ident,'report.html'))
         self.assertEqual(self.dash.history()[0]['id'],ident)
@@ -127,7 +127,7 @@ class WebLifecycle(unittest.TestCase):
     def test_history_restart(self):
         ident=self.dash.start(task());wait_done(self.dash,ident)
         self.dash.close();self.dash=Dashboard(Path(self.temp.name)/'jobs')
-        self.assertEqual(self.dash.snapshot(ident)['status'],'completed')
+        self.assertEqual(self.dash.snapshot(ident)['status'],'completed', self.dash.snapshot(ident))
 
 
 class WebHTTP(unittest.TestCase):
@@ -156,3 +156,75 @@ class WebHTTP(unittest.TestCase):
         ident=json.loads(body)['id'];wait_done(self.dash,ident)
         code,_,body=self.request('/api/jobs/'+ident);self.assertEqual(code,200);self.assertEqual(len(json.loads(body)['candidates']),6)
         code,h,b=self.request('/api/jobs/'+ident+'/export/report.html');self.assertEqual(code,200);self.assertIn('attachment',h['Content-Disposition']);self.assertIn(b'SYNTHETIC DEMO',b)
+
+
+class ConcurrentStorage(unittest.TestCase):
+    def test_checkpoint_replace_waits_for_poll_reader(self):
+        from idea_parallax.io_utils import write_json
+        import os
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'state.json'
+            write_json(path, {'state': 'old'})
+            read_open = threading.Event()
+            release_reader = threading.Event()
+            write_started = threading.Event()
+            replaced = threading.Event()
+            failures = []
+            observed = []
+            read_text = Path.read_text
+            replace = os.replace
+
+            def held_read(target, *args, **kwargs):
+                if target == path:
+                    read_open.set()
+                    if not release_reader.wait(3):
+                        raise AssertionError('reader release timed out')
+                return read_text(target, *args, **kwargs)
+
+            def tracked_replace(*args, **kwargs):
+                replaced.set()
+                return replace(*args, **kwargs)
+
+            def reader():
+                try:
+                    observed.append(load_json(path))
+                except BaseException as exc:
+                    failures.append(exc)
+
+            def writer():
+                write_started.set()
+                try:
+                    write_json(path, {'state': 'new'})
+                except BaseException as exc:
+                    failures.append(exc)
+
+            with patch.object(Path, 'read_text', held_read), patch('idea_parallax.io_utils.os.replace', tracked_replace):
+                r = threading.Thread(target=reader)
+                w = threading.Thread(target=writer)
+                r.start()
+                try:
+                    self.assertTrue(read_open.wait(2))
+                    w.start()
+                    self.assertTrue(write_started.wait(2))
+                    self.assertFalse(replaced.wait(.1), 'replacement raced an active reader')
+                finally:
+                    release_reader.set()
+                    r.join(3)
+                    if w.ident is not None:
+                        w.join(3)
+                self.assertFalse(r.is_alive())
+                self.assertFalse(w.is_alive())
+            self.assertEqual(failures, [])
+            self.assertEqual(observed, [{'state': 'old'}])
+            self.assertEqual(load_json(path), {'state': 'new'})
+
+    def test_replace_permission_failure_keeps_previous_checkpoint(self):
+        from idea_parallax.io_utils import write_json
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'state.json'
+            write_json(path, {'state': 'old'})
+            with patch('idea_parallax.io_utils.os.replace', side_effect=PermissionError('fixture')):
+                with self.assertRaises(PermissionError):
+                    write_json(path, {'state': 'new'})
+            self.assertEqual(load_json(path), {'state': 'old'})
+            self.assertEqual(list(Path(directory).glob('.write-*')), [])

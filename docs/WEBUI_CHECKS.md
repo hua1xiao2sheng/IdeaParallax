@@ -67,3 +67,24 @@ python -m idea_parallax web --open
 In the dashboard choose the explicitly labeled offline demo first. Then on a machine
 with a valid ChatGPT Codex login, select two strategies, one candidate each, concurrency
 one or two, and no reviews for the first real smoke test. Do not upload credentials.
+
+
+## Post-publication Windows concurrency correction
+
+The first dashboard CI run (37411640521, commit 3504dd0) passed on Ubuntu 3.11/3.13
+and Windows 3.11, but Windows 3.13 reported four dashboard lifecycle/export failures.
+The generated candidates could exist while final report/state completion failed.
+Original command-line tests still passed. The dashboard polls checkpoints from another
+thread, exposing concurrent file-read/atomic-replace behavior that was not exercised
+by the original single-event-loop CLI tests.
+
+The follow-up serializes in-process JSON reads and atomic text writes using a shared
+reentrant storage lock. It does not serialize model calls, change the call budget,
+ignore storage errors, or delete the failing tests. Two deterministic regressions
+hold a polling read open during checkpoint publication and verify that a genuine
+replace permission failure preserves the old checkpoint and still raises.
+Dashboard assertions also include the sanitized job snapshot on failure for diagnosis.
+This does not claim to coordinate other processes or to bypass filesystem permissions.
+
+The updated local suite contains 125 tests. Consult the follow-up commit's actual CI
+run for its platform outcomes; no future runner result is assumed here.
